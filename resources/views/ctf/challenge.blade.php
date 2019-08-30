@@ -53,7 +53,6 @@
       <h5 class="centered">VCTF</h5>
      <li class="mt"> <a href="/home"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a> </li>
      <li class="sub-menu"> <a class="active" href="/challenges"> <i class="fa fa-flag"></i> <span>Challenges</span> </a> </li>
-     <li class="sub-menu"><a href="/notice"> <i class="fa fa-gift"></i><span>Notice</span> </a> </li>
      <li class="sub-menu"> <a href="/scoreboard"> <i class="fa fa-book"></i> <span>scoreboard</span> </a> </li>
      <li class="sub-menu"> <a href="/about"> <i class=" fa fa-bar-chart-o"></i> <span>About</span> </a> </li>
     </ul>
@@ -66,14 +65,11 @@
             <h3><i class="fa fa-angle-right"></i> Blank Page</h3>
             <div class="row mt">
               <div class="col-lg-12">
-                <div class="row">
-                 @foreach($web as $web_info)
-                 @if($web_info->check == 'on')
-                 <?php continue;?>
-                 @else
-                 <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                  @php if(in_array($web_info->id,$solved)){
-                  echo '<div class="ctf-success pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa-flag fa-spin"></i>';}else{
+                    <div class="row">
+                         @foreach($web as $web_info)
+                         <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                          @php if(in_array($web_info->id,$solved)){
+                          echo '<div class="ctf-success pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa-flag fa-spin"></i>';}else{
                           echo '<div class="weather-3 pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
                           }@endphp
 
@@ -93,13 +89,8 @@
                   </div>
               </div></div>
             </div>
-@endif
 @endforeach
-
 @foreach($web as $web_info)
-@if($web_info->check == 'on')
-<?php continue;?>
-@else
 <div class="modal fade" id="myModal{{$web_info->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                 <div class="modal-content">
@@ -114,17 +105,14 @@
       @if($hint_info->taskid == $web_info->id)
             <code>{{$hint_info->addtime}}:@php echo base64_decode($hint_info->hintdata);@endphp</code> @endif
       @endforeach
-                <form class="form-inline" id="login_form" action="" method="POST">
     <div class="form-group">
                  <input id="flag{{$web_info->id}}" name="flag" type="text" placeholder="flag" class="form-control" />
                   <input id="id{{$web_info->id}}" type="hidden" name="id" value="{{$web_info->id}}" />
 </div><div class="form-group">
                 <a id="login_btn{{$web_info->id}}" class="btn btn-success btn-sm pull-left">Submit flag</a>
 </div>
-</form>
 </div>    </div></div>
             </div>
-@endif
 @endforeach
 
     <!-- /row -->
