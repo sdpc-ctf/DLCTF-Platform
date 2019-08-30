@@ -41,6 +41,35 @@ class ctfController extends Controller
         'web'=>$web,'solved'=>$solced,'hint'=>$hint,'hinttask'=>$hint_task,'solvenum'=>$solvenum
         ]);
     }
+    public function ctftype(Request $request,$type)
+    {
+        $user_solve = DB::table('solvedtask')->where('username',Auth::user()->name)->first();
+
+        $hint = DB::table('hint')
+            ->join('task', 'hint.taskid', '=', 'task.id')
+            ->select('hint.*', 'task.taskname')
+            ->orderBy('addtime','desc')
+            ->get();
+        $hint_task = DB::table('hint')->pluck('taskid')->toArray();
+        if($user_solve != NULL){
+        $solced=json_decode($user_solve->taskid,true);}else{
+        $solced=array();
+        }
+        $web=DB::table('task')->where('typetask',$type)->get();
+        $solvenum1=DB::table('submit_flag')
+                ->select('taskid', DB::raw('count(*) as count'))
+                ->where('check_status',1)
+                ->groupBy('taskid')
+                ->havingRaw('taskid > 0')
+                ->get()
+                ->map(function ($value) {return (array)$value;})->toArray();
+        $solvenum=array_column($solvenum1,'taskid');
+        $slovenum2=array_column($solvenum1,'count');
+	$solvenum=array_combine($solvenum,$slovenum2);
+	return view('ctf.challenge')->with([
+          'web'=>$web,'solved'=>$solced,'hint'=>$hint,'hinttask'=>$hint_task,'solvenum'=>$solvenum
+        ]);
+    }
     public function score(Request $request)
     {
         $user_solve = DB::table('solvedtask')->orderBy('score','desc')->get();
