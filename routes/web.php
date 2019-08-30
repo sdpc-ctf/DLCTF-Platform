@@ -16,6 +16,7 @@ Route::get('/','ctfController@index');
 ctf
 */
 Route::get('challenges','ctfController@challenges');
+Route::get('challenges/{type}','ctfController@ctftype')->where('type','[a-z]+');
 Route::get('scoreboard','ctfController@score');
 Route::post('flag/submit','ctfController@submitflag');
 Route::any('notice','ctfController@notice');
