@@ -12,10 +12,16 @@
                             <span>首页</span></a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="/ctfadmin/task" class="nav-link tpl-left-nav-link-list">
+                        <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-bars"></i>
                             <span>题目列表</span></a>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="/ctfadmin/task" class="nav-link tpl-left-nav-link-list ">
+                            <i class="am-icon-group"></i>
+                            <span>队伍信息</span></a>
                     </li>
+
                     <li class="tpl-left-nav-item">
                         <a href="/ctfadmin/task/add" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-flag"></i>

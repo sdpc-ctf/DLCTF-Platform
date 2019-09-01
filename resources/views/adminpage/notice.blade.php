@@ -15,6 +15,13 @@
                             <i class="am-icon-bars"></i>
                             <span>题目列表</span></a>
                     </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list ">
+                            <i class="am-icon-group"></i>
+                            <span>队伍信息</span></a>
+                    </li>
+
                     <li class="tpl-left-nav-item">
                         <a href="/ctfadmin/task/add" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-flag"></i>
@@ -33,7 +40,7 @@
                         <!-- 打开状态 添加 display:block-->
                         <ul class="tpl-left-nav-sub-menu">
                             <li>
-                                <a href="/ctfadmin/task/hint active" >
+                                <a href="/ctfadmin/task/hint" >
                                     <i class="am-icon-angle-right"></i>
                                     <span>题目hint</span>
                                     <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>

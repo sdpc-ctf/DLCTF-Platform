@@ -14,14 +14,19 @@
                 <a href="/ctfadmin/task" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-bars"></i>
                     <span>题目列表</span></a>
+
+        <li class="tpl-left-nav-item">
+                <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list ">
+                    <i class="am-icon-group"></i>
+                    <span>队伍信息</span></a>
         </li>
         <li class="tpl-left-nav-item">
                 <a href="/ctfadmin/task/add" class="nav-link tpl-left-nav-link-list active">
                     <i class="am-icon-flag"></i>
                     <span>题目添加</span></a>
         </li>
-        
-        
+
+
         <li class="tpl-left-nav-item">
             <!-- 打开状态 a 标签添加 active 即可 -->
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
@@ -61,7 +66,7 @@
         <ol class="am-breadcrumb">
           <li>
             <a href="#" class="am-icon-home">首页</a></li>
-          
+
         <div class="tpl-portlet-components">
           <div class="portlet-title">
             <div class="caption font-green bold">

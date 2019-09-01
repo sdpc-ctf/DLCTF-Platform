@@ -16,12 +16,18 @@
                     <span>题目列表</span></a>
         </li>
         <li class="tpl-left-nav-item">
+                <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list ">
+                    <i class="am-icon-group"></i>
+                    <span>队伍信息</span></a>
+        </li>
+
+        <li class="tpl-left-nav-item">
                 <a href="/ctfadmin/task/add" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-flag"></i>
                     <span>题目添加</span></a>
         </li>
-        
-        
+
+
         <li class="tpl-left-nav-item">
             <!-- 打开状态 a 标签添加 active 即可 -->
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
@@ -33,7 +39,7 @@
             <!-- 打开状态 添加 display:block-->
             <ul class="tpl-left-nav-sub-menu">
             <li>
-                <a href="/ctfadmin/task/hint active" >
+                <a href="/ctfadmin/task/hint" >
                 <i class="am-icon-angle-right"></i>
                 <span>题目hint</span>
                 <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
@@ -61,7 +67,7 @@
         <ol class="am-breadcrumb">
           <li>
             <a href="#" class="am-icon-home">首页</a></li>
-          
+
         <div class="tpl-portlet-components">
           <div class="portlet-title">
             <div class="caption font-green bold">
@@ -72,7 +78,7 @@
               <div class="tpl-form-body tpl-form-line">
                 <form action="{{url('ctfadmin/task/hint')}}" class="am-form tpl-form-line-form" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  
+
                   <div class="am-form-group">
                     <label for="user-phone" class="am-u-sm-3 am-form-label">题目名称
                       <span class="tpl-form-line-small-title">taskname</span></label>
@@ -84,7 +90,7 @@
                       </select>
                     </div>
                   </div>
-                 
+
                   <div class="am-form-group">
                     <label for="user-intro" class="am-u-sm-3 am-form-label">题目hint</label>
                     <div class="am-u-sm-9">

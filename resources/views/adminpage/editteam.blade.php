@@ -1,6 +1,6 @@
 @extends('adminpage.home')
 @section('content')
-@foreach($task as $taskdata)
+@foreach($team as $teamdata)
 <div class="tpl-page-container tpl-page-header-fixed">
     <div class="tpl-left-nav tpl-left-nav-hover">
     <div class="tpl-left-nav-title">Amaze UI 列表</div>
@@ -64,7 +64,7 @@
     </div>
     </div>
       <div class="tpl-content-wrapper">
-        <div class="tpl-content-page-title">Edit Task</div>
+        <div class="tpl-content-page-title">Edit Team</div>
         <ol class="am-breadcrumb">
           <li>
             <a href="#" class="am-icon-home">首页</a></li>
@@ -72,59 +72,36 @@
         <div class="tpl-portlet-components">
           <div class="portlet-title">
             <div class="caption font-green bold">
-              <span class="am-icon-code"></span>题目更新</div>
+              <span class="am-icon-code"></span>队伍更新</div>
           </div>
           <div class="tpl-block">
             <div class="am-g">
-              <div class="tpl-form-body tpl-form-line">
+                <div class="tpl-form-body tpl-form-line">
                 <form action="" class="am-form tpl-form-line-form" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="am-form-group">
-                    <label for="user-name" class="am-u-sm-3 am-form-label">题目名称
-                      <span class="tpl-form-line-small-title">taskname</span></label>
+                    <label for="user-name" class="am-u-sm-3 am-form-label">队伍名称
+                      <span class="tpl-form-line-small-title">Teamname</span></label>
                     <div class="am-u-sm-9">
-                      <input type="text" class="tpl-form-input" name="taskname" value="{{$taskdata -> taskname}}"></div>
+                      <input type="text" class="tpl-form-input" name="teamname" value="{{$teamdata -> username}}"></div>
                   </div>
                   <div class="am-form-group">
-                    <label for="user-phone" class="am-u-sm-3 am-form-label">题目分类
-                      <span class="tpl-form-line-small-title">tasktype</span></label>
+                    <label for="user-phone" class="am-u-sm-3 am-form-label">解决题目
+                      <span class="tpl-form-line-small-title">Taskid</span></label>
                     <div class="am-u-sm-9">
-                      <select name="type" data-am-selected="{searchBox: 1}">
-                        <option value="web">WEB</option>
-                        <option value="pwn">PWN</option>
-                        <option value="misc">MISC</option>
-                        <option value="re">RE</option>
-                        <option value="crypto">CRYPTO</option></select>
-                    </div>
+                      <input type="text" class="tpl-form-input" name="taskid" value="{{$teamdata -> taskid}}"></div>
                   </div>
                   <div class="am-form-group">
-                    <label class="am-u-sm-3 am-form-label">题目分值
-                      <span class="tpl-form-line-small-title">taskscore</span></label>
+                    <label class="am-u-sm-3 am-form-label">队伍得分
+                      <span class="tpl-form-line-small-title">Teamscore</span></label>
                     <div class="am-u-sm-9">
-                      <input type="text" name="score" value="{{$taskdata -> score}}"></div>
+                      <input type="text" name="score" value="{{$teamdata -> score}}"></div>
                   </div>
                   <div class="am-form-group">
-                    <label class="am-u-sm-3 am-form-label">题目flag
-                      <span class="tpl-form-line-small-title">taskflag</span></label>
+                    <label class="am-u-sm-3 am-form-label">最后提交
+                      <span class="tpl-form-line-small-title">Lastsubmit</span></label>
                     <div class="am-u-sm-9">
-                      <input type="text" name="flag" value="{{$taskdata -> flag}}"></div>
-                  </div>
-                  <div class="am-form-group">
-                    <label for="user-intro" class="am-u-sm-3 am-form-label">隐藏题目</label>
-                    <div class="am-u-sm-9">
-                      <div class="tpl-switch">
-                        <input type="checkbox" name="check" class="ios-switch bigswitch tpl-switch-btn" checked />
-                        <div class="tpl-switch-btn-view">
-                          <div></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="am-form-group">
-                    <label for="user-intro" class="am-u-sm-3 am-form-label">题目描述</label>
-                    <div class="am-u-sm-9">
-                      <textarea class="" rows="10" name="taskdata"><?php echo base64_decode($taskdata -> taskdata);?></textarea>
-                    </div>
+                      <input type="text" name="addtime" value="{{$teamdata -> addtime}}"></div>
                   </div>
                   <div class="am-form-group">
                     <div class="am-u-sm-9 am-u-sm-push-3">

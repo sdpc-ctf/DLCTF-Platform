@@ -15,13 +15,19 @@
                     <i class="am-icon-bars"></i>
                     <span>题目列表</span></a>
         </li>
+
+        <li class="tpl-left-nav-item">
+                <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list ">
+                    <i class="am-icon-group"></i>
+                    <span>队伍信息</span></a>
+        </li>
         <li class="tpl-left-nav-item">
                 <a href="/ctfadmin/task/add" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-flag"></i>
                     <span>题目添加</span></a>
         </li>
-        
-        
+
+
         <li class="tpl-left-nav-item">
             <!-- 打开状态 a 标签添加 active 即可 -->
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
@@ -63,7 +69,7 @@
     <ol class="am-breadcrumb">
         <li><a href="#" class="am-icon-home">Manage</a></li>
         <li><a href="#">CTF</a></li>
-       
+
     </ol>
 
 
@@ -91,7 +97,7 @@
                     <div class="number"> {{$people}} </div>
                     <div class="desc"> 注册人数 </div>
                 </div>
-                <a class="more" href="#"> 
+                <a class="more" href="#">
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
             </div>
@@ -105,7 +111,7 @@
                     <div class="number"> {{$submit}} </div>
                     <div class="desc"> 提交flag次数 </div>
                 </div>
-                <a class="more" href="#"> 
+                <a class="more" href="#">
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
             </div>
@@ -119,7 +125,7 @@
                     <div class="number"> {{$scorep}} </div>
                     <div class="desc"> 得分人数 </div>
                 </div>
-                <a class="more" href="#"> 
+                <a class="more" href="#">
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
             </div>

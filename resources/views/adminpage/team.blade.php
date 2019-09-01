@@ -11,13 +11,13 @@
             <span>首页</span></a>
         </li>
         <li class="tpl-left-nav-item">
-                <a href="/ctfadmin/task" class="nav-link tpl-left-nav-link-list active">
+                <a href="/ctfadmin/task" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-bars"></i>
                     <span>题目列表</span></a>
         </li>
 
         <li class="tpl-left-nav-item">
-                <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list ">
+                <a href="/ctfadmin/team" class="nav-link tpl-left-nav-link-list active">
                     <i class="am-icon-group"></i>
                     <span>队伍信息</span></a>
         </li>
@@ -64,16 +64,13 @@
     </div>
     </div>
 
-
-
-
     <div class="tpl-content-wrapper">
         <div class="tpl-content-page-title">
-            题目列表
+            队伍信息
         </div>
         <ol class="am-breadcrumb">
             <li><a href="/home" class="am-icon-home">首页</a></li>
-            <li><a href="#">题目管理</a></li>
+            <li><a href="#">队伍管理</a></li>
         </ol>
         <div class="tpl-portlet-components">
             <div class="portlet-title">
@@ -90,38 +87,33 @@
                                     <tr>
 
                                         <th class="table-id">ID</th>
-                                        <th class="table-title">Taskname</th>
-                                        <th class="table-type">Type</th>
+                                        <th class="table-title">Teamname</th>
+                                        <th class="table-type">Solved</th>
                                         <th class="table-date am-hide-sm-only">分值</th>
-                                        <th class="table-date am-hide-sm-only">添加日期</th>
+                                        <th class="table-date am-hide-sm-only">最后提交</th>
                                         <th class="table-set">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        @foreach($task as $taskdata)
+                                        @foreach($team as $teamdata)
                                         <tr>
-                                        <td>{{$taskdata -> id}}</td>
-                                        <td>{{$taskdata -> taskname}}</td>
-                                        <td><a href="#">{{$taskdata -> typetask}}</a></td>
-                                        <td>{{$taskdata -> score}}</td>
-                                        <td class="am-hide-sm-only">{{$taskdata -> addtime}}</td>
+                                        <td>{{$teamdata -> id}}</td>
+                                        <td>{{$teamdata -> username}}</td>
+                                        <td>{{$teamdata -> taskid}}</a></td>
+                                        <td>{{$teamdata -> score}}</td>
+                                        <td class="am-hide-sm-only">{{$teamdata -> addtime}}</td>
                                         <td>
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="{{url('ctfadmin/task/edit')}}/{{$taskdata->id}}"><span class="am-icon-pencil-square-o"></span> 编辑</a></button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="{{url('ctfadmin/task/hide')}}/{{$taskdata->id}}"><span class="am-icon-copy"></span><?php if($taskdata->check){
-                                                        echo "已隐藏".'<font color=red>☠</font>';
-                                                    }else{echo '显示中'.'<font color=green>👁</font>';}?></a></button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><a href="{{url('ctfadmin/task/delete')}}/{{$taskdata->id}}"><span class="am-icon-trash-o"></span>删除</a></button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="{{url('ctfadmin/team/edit')}}/{{$teamdata->id}}"><span class="am-icon-pencil-square-o"></span> 编辑</a></button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><a href="{{url('ctfadmin/team/delete')}}/{{$teamdata->id}}"><span class="am-icon-trash-o"></span>删除</a></button>
                                                     </div>
-                                                </div>
+                                            </div>
                                         </td>
                                         </tr>
                                         @endforeach
-
                                 </tbody>
                             </table>
-
                             <hr>
 
                         </form>
@@ -133,5 +125,4 @@
         </div>
 </div>
 </div>
-
 @endsection

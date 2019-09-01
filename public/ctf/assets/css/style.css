@@ -1215,7 +1215,7 @@ PANELS CONFIGURATIONS
 
 /* Weather 3 */
 .weather-3 {
-	background: #ffcf00;
+	background: #ffcff0;
 }
 
 .weather-3 i {
@@ -1250,6 +1250,186 @@ PANELS CONFIGURATIONS
 	font-weight: 700;
 }
 /* Weather 3 */
+/* web-color */
+.web-color {
+    background: #9ACD32;
+}
+.web-color i {
+    color: white;
+    margin-top: 30px;
+    font-size: 70px;
+}
+.web-color h1 {
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+}
+.web-color .info {
+    background: #f2f2f2;
+}
+.web-color .info i {
+    font-size: 15px;
+    color: #c2c2c2;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.web-color .info h3 {
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.web-color .info p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    color: #c2c2c2;
+    font-size: 15px;
+    font-weight: 700;
+}
+/* web-color */
+/* re-color */
+.re-color {
+    background: #90EE90;
+}
+.re-color i {
+    color: white;
+    margin-top: 30px;
+    font-size: 70px;
+}
+.re-color h1 {
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+}
+.re-color .info {
+    background: #f2f2f2;
+}
+.re-color .info i {
+    font-size: 15px;
+    color: #c2c2c2;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.re-color .info h3 {
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.re-color .info p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    color: #c2c2c2;
+    font-size: 15px;
+    font-weight: 700;
+}
+/* re-color */
+/* pwn-color */
+.pwn-color {
+    background: #00BFFF;
+}
+.pwn-color i {
+    color: white;
+    margin-top: 30px;
+    font-size: 70px;
+}
+.pwn-color h1 {
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+}
+.pwn-color .info {
+    background: #f2f2f2;
+}
+.pwn-color .info i {
+    font-size: 15px;
+    color: #c2c2c2;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.pwn-color .info h3 {
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.pwn-color .info p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    color: #c2c2c2;
+    font-size: 15px;
+    font-weight: 700;
+}
+/* pwn-color */
+/* misc-color */
+.misc-color {
+    background: #FFFF00;
+}
+.misc-color i {
+    color: white;
+    margin-top: 30px;
+    font-size: 70px;
+}
+.misc-color h1 {
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+}
+.misc-color .info {
+    background: #f2f2f2;
+}
+.misc-color .info i {
+    font-size: 15px;
+    color: #c2c2c2;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.misc-color .info h3 {
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.misc-color .info p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    color: #c2c2c2;
+    font-size: 15px;
+    font-weight: 700;
+}
+/* misc-color */
+/* crypto-color */
+.crypto-color {
+    background: #808080;
+}
+.crypto-color i {
+    color: white;
+    margin-top: 30px;
+    font-size: 70px;
+}
+.crypto-color h1 {
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+}
+.crypto-color .info {
+    background: #f2f2f2;
+}
+.crypto-color .info i {
+    font-size: 15px;
+    color: #c2c2c2;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.crypto-color .info h3 {
+    font-weight: 900;
+    margin-bottom: 0px;
+}
+.crypto-color .info p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    color: #c2c2c2;
+    font-size: 15px;
+    font-weight: 700;
+}
+/* crypto-color */
 .ctf-success {
     background: #00CC33;
 }

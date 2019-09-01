@@ -238,4 +238,63 @@ class adminController extends Controller
             'jumpTime' => 1,
         ]);
     }
+
+    public function seeteam(Request $request){
+        $this->auth_admin();
+        $team = DB::table('solvedtask')->get();
+        return view('adminpage.team')->with('team', $team);
+    }
+
+    public function editteam(Request $request, $id)
+    {
+        $this->auth_admin();
+        $team = DB::table('solvedtask')->where('id', $id)->get();
+        $success1 = DB::table('solvedtask')->where('id', $id)->first();
+        if ($success1) {
+            if ($request->isMethod('get')) {
+                return view('adminpage.editteam')->with('team', $team);
+            } elseif ($request->isMethod('post')) {
+                $teamkname = $request->input('teamname');
+                $taskid = $request->input('taskid');
+                $score = $request->input('score');
+                $addtime = $request->input('addtime');
+                $success2 = DB::table('solvedtask')->where('id', $id)->update(
+                    ['username' => $teamkname, 'taskid' => $taskid,'score' => $score, 'addtime' => $addtime]
+                );
+                if ($success2) {
+                    $mess = "更新成功";
+                } else {
+                    $mess = "因为某些原因失败";
+                }
+                return view('jump')->with([
+                    'message' => $mess,
+                    'url' => '/ctfadmin/team',
+                    'jumpTime' => 2,
+                ]);
+            }
+        } else {
+            $mess = "不存在当前队伍";
+        }
+        return view('jump')->with([
+            'message' => $mess,
+            'url' => '/ctfadmin/team',
+            'jumpTime' => 1,
+        ]);
+    }
+   public function deleteteam(Request $request, $id)
+    {
+        $this->auth_admin();
+        $success = DB::table('solvedtask')->where('id', $id)->delete();
+        if ($success) {
+            $mess = "删除队伍成功";
+        } else {
+            $mess = "因为某些原因失败";
+        }
+        return view('jump')->with([
+            'message' => $mess,
+            'url' => '/ctfadmin/team',
+            'jumpTime' => 1,
+        ]);
+
+    }
 }

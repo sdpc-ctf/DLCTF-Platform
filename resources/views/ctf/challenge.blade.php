@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('ctf/assets/css/style.css')}}" rel="stylesheet">
+
     <link href="{{ asset('ctf/assets/css/style-responsive.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('ctf/assets/css/to-do.css')}}">
   <link href="{{ asset('ctf/build/toastr.css')}}" rel="stylesheet" />
@@ -53,6 +54,7 @@
       <h5 class="centered">VCTF</h5>
      <li class="mt"> <a href="/home"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a> </li>
      <li class="sub-menu"> <a class="active" href="/challenges"> <i class="fa fa-flag"></i> <span>Challenges</span> </a> </li>
+          <li class="sub-menu"> <a  href="/notice"> <i class="fa fa-flag"></i> <span>Notice</span> </a> </li>
      <li class="sub-menu"> <a href="/scoreboard"> <i class="fa fa-book"></i> <span>scoreboard</span> </a> </li>
      <li class="sub-menu"> <a href="/about"> <i class=" fa fa-bar-chart-o"></i> <span>About</span> </a> </li>
     </ul>
@@ -62,15 +64,90 @@
 
    <section id="main-content">
           <section class="wrapper site-min-height">
+            <div style="width:290px; height:auto; float:left; display:inline">
             <h3><i class="fa fa-angle-right"></i> Blank Page</h3>
+            </div>
+            <!-- settings start -->
+            <h3>
+                    <dl class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                            <i class="fa fa-tasks"></i>
+
+                        </a>
+                        <ul class="dropdown-menu extended tasks-bar">
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                <p class="green">Types</p>
+                            </li>
+                            <li>
+                                <a href="/challenges/web">
+                                    <div class="task-info">
+                                        <div class="desc">Web</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/challenges/pwn">
+                                    <div class="task-info">
+                                        <div class="desc">Pwn</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/challenges/re">
+                                    <div class="task-info">
+                                        <div class="desc">Re</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/challenges/misc">
+                                    <div class="task-info">
+                                        <div class="desc">Misc</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/challenges/crypto">
+                                    <div class="task-info">
+                                        <div class="desc">Crypto</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="external">
+                                <a href="/challenges">See All Tasks</a>
+                            </li>
+                        </ul>
+                    </dl>
+                    </h3>
+                    <!-- settings end -->
             <div class="row mt">
               <div class="col-lg-12">
                     <div class="row">
                          @foreach($web as $web_info)
                          <div class="col-lg-4 col-md-4 col-sm-4 mb">
+
                           @php if(in_array($web_info->id,$solved)){
                           echo '<div class="ctf-success pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa-flag fa-spin"></i>';}else{
-                          echo '<div class="weather-3 pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
+                            if($web_info->typetask === 'web'){
+                          echo '<div class="web-color pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';}
+                            elseif($web_info->typetask === 're'){
+                            echo '<div class="re-color pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
+                          }
+                            elseif($web_info->typetask === 'pwn'){
+                            echo '<div class="pwn-color pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
+                          }
+                            elseif($web_info->typetask === 'misc'){
+                            echo '<div class="misc-color pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
+                          }
+                            elseif($web_info->typetask === 'crypto'){
+                            echo '<div class="crypto-color pn centered popup-with-zoom-anim" data-toggle="modal" data-target="#myModal'.$web_info->id.'"><i class="fa fa fa-check"></i>';
+                          }
                           }@endphp
 
                 <h1>{{$web_info->score}}PTS</h1>
@@ -92,27 +169,36 @@
 @endforeach
 @foreach($web as $web_info)
 <div class="modal fade" id="myModal{{$web_info->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                     <h4 class="modal-title" id="myModalLabel">{{$web_info->taskname}}</h4>
-                      </div>
-                  <div class="modal-body">
-                    @php echo base64_decode($web_info->taskdata); @endphp
-                  <hr>
-                  @foreach($hint as $hint_info)
-      @if($hint_info->taskid == $web_info->id)
-            <code>{{$hint_info->addtime}}:@php echo base64_decode($hint_info->hintdata);@endphp</code> @endif
-      @endforeach
-    <div class="form-group">
-                 <input id="flag{{$web_info->id}}" name="flag" type="text" placeholder="flag" class="form-control" />
-                  <input id="id{{$web_info->id}}" type="hidden" name="id" value="{{$web_info->id}}" />
-</div><div class="form-group">
-                <a id="login_btn{{$web_info->id}}" class="btn btn-success btn-sm pull-left">Submit flag</a>
-</div>
-</div>    </div></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{$web_info->taskname}}</h4>
             </div>
+            <div class="modal-body">
+              <div>
+              <h4>Task: @php echo base64_decode($web_info->taskdata); @endphp
+              </h4></div>
+            <div>
+              <hr style="height:5px;border:none;border-top:5px groove skyblue;"/>
+              <h4>@foreach($hint as $hint_info)
+              @if($hint_info->taskid == $web_info->id)
+              Hint:
+              <code>{{$hint_info->addtime}}:@php echo base64_decode($hint_info->hintdata);@endphp</code> @endif
+              @endforeach
+            </h4></div>
+            </div>
+              <div class="modal-footer">
+                <div class="form-inline">
+                  <div class="form-group">
+                  <input id="flag{{$web_info->id}}" name="flag" type="text" placeholder="flag" class="form-control" />
+                  <input id="id{{$web_info->id}}" type="hidden" name="id" value="{{$web_info->id}}" />
+                <a id="login_btn{{$web_info->id}}" class="btn btn-primary">Submit</a></div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
 @endforeach
 
     <!-- /row -->
@@ -143,7 +229,6 @@
               removalDelay: 300,
               mainClass: 'my-mfp-zoom-in'
             });
-
             });
 </script>
   <!--common script for all pages-->
@@ -155,20 +240,16 @@
   jQuery(document).ready(function() {
       TaskList.initTaskWidget();
   });
-
   $(function() {
       $( "#sortable" ).sortable();
       $( "#sortable" ).disableSelection();
   });
-
 </script>
   <script>
   //custom select box
-
   $(function(){
       $('select.styled').customSelect();
   });
-
 </script>
   <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
   <script src="{{ asset('ctf/build/toastr.min.js')}}"></script>
