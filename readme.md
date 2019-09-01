@@ -1,7 +1,7 @@
 <h1 align="center">DL&S-Platform🚩</h1>
 
 
-## ♻ About DL&S-Plaform
+## ♻ About DL&S-Platform
 
 ```php
 DL&S 来自 SDPC
@@ -79,7 +79,7 @@ Route::get('/about','ctfController@about');
 - [x] 后台题目相关，单个/批量隐藏，题目修改，删除
 - [x] 后台优化，公告添加、notice删除。前台侧边栏增加Notice，打开显示提示。
 - [x] 题目展示页面ui改善、积分榜增加Last Submit时间。后台增加比赛相关修改，前台比赛信息在数据库中，后台直接修改即可。
-- [ ] 侧边栏增加总分类（展开每个题目分类页面），同时不同种类题目样式显示不一样
+- [x] 侧边栏增加总分类（展开每个题目分类页面），同时不同种类题目样式显示不一样
 
 ## 🕊待增加的锅
 
