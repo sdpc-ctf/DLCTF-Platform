@@ -89,7 +89,7 @@
                                                 <th>Name</th>
                                                 <th>Status</th>
                                                 <th>Score</th>
-                                   
+                                  		<th>Last submission</th> 
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,7 +109,7 @@
                                            @endforeach
                                           
                                            <td width="50">{{$rank->score}}</td>
-                                           
+                                          <td width="50">{{$rank->addtime}}</td> 
                                          @endforeach
                                          
                                          

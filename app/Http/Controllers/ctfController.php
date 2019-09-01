@@ -26,7 +26,7 @@ class ctfController extends Controller
         $solced=json_decode($user_solve->taskid,true);}else{
         $solced=array();
         }
-        $web=DB::table('task')->get();
+        $web=DB::table('task')->where('check','!=','on')->get();
         $solvenum1=DB::table('submit_flag')
                 ->select('taskid', DB::raw('count(*) as count'))
                 ->where('check_status',1)
@@ -55,8 +55,10 @@ class ctfController extends Controller
         $solced=json_decode($user_solve->taskid,true);}else{
         $solced=array();
         }
-        $web=DB::table('task')->where('typetask',$type)->get();
-        $solvenum1=DB::table('submit_flag')
+	$web=DB::table('task')->where([
+    ['typetask','=',$type],
+    ['check','!=','on'],])->get();
+	$solvenum1=DB::table('submit_flag')
                 ->select('taskid', DB::raw('count(*) as count'))
                 ->where('check_status',1)
                 ->groupBy('taskid')

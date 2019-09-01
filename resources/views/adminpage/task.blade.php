@@ -109,9 +109,9 @@
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="{{url('ctfadmin/task/edit')}}/{{$taskdata->id}}"><span class="am-icon-pencil-square-o"></span> 编辑</a></button>
-                                                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="{{url('ctfadmin/task/hide')}}/{{$taskdata->id}}"><span class="am-icon-copy"></span><?php if($taskdata->check){
-                                                        echo "已隐藏".'<font color=red>☠</font>';
-                                                    }else{echo '显示中'.'<font color=green>👁</font>';}?></a></button>
+                                                   @php if($taskdata->check!='off'){
+                                                        echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/open/'.$taskdata->id.'"><span class="am-icon-copy"></span>已隐藏<font color=red>☠</font></a></button>';
+                                                    }else{echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/hide/'.$taskdata->id.'"><span class="am-icon-copy"></span>显示中<font color=green>👁</font></a></button>';}@endphp
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><a href="{{url('ctfadmin/task/delete')}}/{{$taskdata->id}}"><span class="am-icon-trash-o"></span>删除</a></button>
                                                     </div>
                                                 </div>

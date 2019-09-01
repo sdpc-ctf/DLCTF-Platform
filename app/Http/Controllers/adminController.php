@@ -43,7 +43,22 @@ class adminController extends Controller
         ]);
 
     }
+    public function open(Request $request, $id)
+    {
+        $this->auth_admin();
+        $success = DB::table('task')->where('id', $id)->update(['check' => 'off']);
+        if ($success) {
+            $mess = "开放题目成功";
+        } else {
+            $mess = "因为某些原因失败";
+        }
+        return view('jump')->with([
+            'message' => $mess,
+            'url' => '/ctfadmin/task',
+            'jumpTime' => 1,
+        ]);
 
+    }
     public function delete(Request $request, $id)
     {
         $this->auth_admin();
@@ -298,3 +313,4 @@ class adminController extends Controller
 
     }
 }
+
