@@ -64,7 +64,7 @@
 
       <section id="main-content">
         <section class="wrapper site-min-height">
-          <div style="width:290px; height:auto; float:left; display:inline">
+          <div style="width:150px; height:auto; float:left; display:inline">
             <h3><i class="fa fa-angle-right"></i> Task Page</h3>
           </div>
           <!-- settings start -->
