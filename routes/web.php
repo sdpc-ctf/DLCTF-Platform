@@ -30,6 +30,7 @@ Route::get('ctfadmin/home','adminController@index');
 Route::any('ctfadmin/task/hint','adminController@hintadd');
 Route::get('ctfadmin/task/delete/{id}','adminController@delete')->where('id','[0-9]+');
 Route::get('ctfadmin/task/hide/{id}','adminController@hide')->where('id','[0-9]+');
+Route::get('ctfadmin/task/open/{id}','adminController@open')->where('id','[0-9]+');
 Route::any('ctfadmin/notice','adminController@notice');
 Route::get('ctfadmin/notice/delete/{id}','adminController@noticedelete')->where('id','[0-9]+');
 Route::any('ctfadmin/notice/edit/{id}','adminController@noticeedit')->where('id','[0-9]+');
