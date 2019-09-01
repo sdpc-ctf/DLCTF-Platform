@@ -109,9 +109,15 @@
                                             <div class="am-btn-toolbar">
                                                 <div class="am-btn-group am-btn-group-xs">
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><a href="{{url('ctfadmin/task/edit')}}/{{$taskdata->id}}"><span class="am-icon-pencil-square-o"></span> 编辑</a></button>
+<<<<<<< HEAD
                                                    @php if($taskdata->check!='off'){
                                                         echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/open/'.$taskdata->id.'"><span class="am-icon-copy"></span>已隐藏<font color=red>☠</font></a></button>';
                                                     }else{echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/hide/'.$taskdata->id.'"><span class="am-icon-copy"></span>显示中<font color=green>👁</font></a></button>';}@endphp
+=======
+                                                   @php if($taskdata->check){
+                                                        echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/open/'.$taskdata->id.'"><span class="am-icon-copy"></span>已隐藏<font color=red>☠</font></a></button>';
+                                                    }else{echo '<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="/ctfadmin/task/hide/'.$taskdata->id.'"><span class="am-icon-copy"></span>显示中<font color=green>👁</font></a></button>';@endphp
+>>>>>>> a7c2db701f374e753728cf578c4cef2d80f38801
                                                     <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><a href="{{url('ctfadmin/task/delete')}}/{{$taskdata->id}}"><span class="am-icon-trash-o"></span>删除</a></button>
                                                     </div>
                                                 </div>

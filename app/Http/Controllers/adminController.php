@@ -30,7 +30,7 @@ class adminController extends Controller
     public function hide(Request $request, $id)
     {
         $this->auth_admin();
-        $success = DB::table('task')->where('id', $id)->update(['check' => 'on']);
+        $success = DB::table('task')->where('id', $id)->update(['check' => 'off']);
         if ($success) {
             $mess = "隐藏题目成功";
         } else {
@@ -46,7 +46,11 @@ class adminController extends Controller
     public function open(Request $request, $id)
     {
         $this->auth_admin();
+<<<<<<< HEAD
         $success = DB::table('task')->where('id', $id)->update(['check' => 'off']);
+=======
+        $success = DB::table('task')->where('id', $id)->update(['check' => 'on']);
+>>>>>>> a7c2db701f374e753728cf578c4cef2d80f38801
         if ($success) {
             $mess = "开放题目成功";
         } else {
