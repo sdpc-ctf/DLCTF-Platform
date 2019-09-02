@@ -86,9 +86,16 @@ class ctfController extends Controller
     }
     public function notice(Request $request)
     {
-        $notice = DB::table('notice')->get();
+        $data = DB::table('hint')
+            ->select('hintdata','addtime');
+        $data = DB::table('notice')
+            ->union($data)
+            ->select('noticedata as data','addtime')
+            ->orderby('addtime','asc')
+            ->get();
+
         return view('ctf.notice')->with([
-            'notice'=>$notice
+            'data'=>$data
         ]);
     }
         public function index(Request $request)
