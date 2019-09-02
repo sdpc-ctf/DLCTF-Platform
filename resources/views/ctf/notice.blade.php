@@ -64,27 +64,27 @@
           <h3><i class="fa fa-angle-right"></i> Notice</h3>
               <!-- page start-->
               <?php $num = 1;?>
-              @foreach($notice as $noticedata)
+              @foreach($data as $datadata)
                     <?php $num=($num <= 3)? $num:1;?>
                     @if($num == 1)
                     <div class="panel-body" id="noti-box">
                       <div class="alert alert-block alert-success">
                         <button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button>
-                          <strong>{{$noticedata->addtime}}</strong> {{base64_decode($noticedata->noticedata)}}
+                          <strong>{{$datadata->addtime}}</br></strong> {{base64_decode($datadata->data)}}
                       </div>
                     </div>
                     @elseif($num == 2)
                     <div class="panel-body" id="noti-box">
                       <div class="alert alert-block alert-info">
                         <button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button>
-                          <strong>{{$noticedata->addtime}}</strong> {{base64_decode($noticedata->noticedata)}}
+                          <strong>{{$datadata->addtime}}</br></strong> {{base64_decode($datadata->data)}}
                       </div>
                     </div>
                     @else($num == 3)
                     <div class="panel-body" id="noti-box">
                       <div class="alert alert-block alert-danger">
                         <button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button>
-                          <strong>{{$noticedata->addtime}}</strong> {{base64_decode($noticedata->noticedata)}}
+                          <strong>{{$datadata->addtime}}</br></strong> {{base64_decode($datadata->data)}}
                       </div>
                     </div>
                     @endif
